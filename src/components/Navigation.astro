@@ -132,18 +132,16 @@ import DarkModeToggle from './DarkModeToggle.astro';
     menuButton.addEventListener('click', toggleMenu);
   }
 
-  // Initialize when DOM is ready
-  document.addEventListener('DOMContentLoaded', () => {
+  // Initialize functions
+  function initialize() {
     initializeDarkMode();
     initializeMobileMenu();
-  });
+  }
 
-  // Also initialize immediately in case DOMContentLoaded already fired  
+  // Initialize when DOM is ready or immediately if already loaded
   if (document.readyState === 'loading') {
-    // Document still loading, wait for DOMContentLoaded
+    document.addEventListener('DOMContentLoaded', initialize);
   } else {
-    // Document already loaded, initialize now
-    initializeDarkMode();
-    initializeMobileMenu();
+    initialize();
   }
 </script>
