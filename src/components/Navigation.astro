@@ -138,7 +138,12 @@ import DarkModeToggle from './DarkModeToggle.astro';
     initializeMobileMenu();
   });
 
-  // Also initialize immediately in case DOMContentLoaded already fired
-  initializeDarkMode();
-  initializeMobileMenu();
+  // Also initialize immediately in case DOMContentLoaded already fired  
+  if (document.readyState === 'loading') {
+    // Document still loading, wait for DOMContentLoaded
+  } else {
+    // Document already loaded, initialize now
+    initializeDarkMode();
+    initializeMobileMenu();
+  }
 </script>
