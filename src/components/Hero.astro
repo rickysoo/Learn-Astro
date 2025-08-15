@@ -1,0 +1,101 @@
+---
+---
+
+<section class="relative py-20 px-6 overflow-hidden">
+  <!-- Background decorations -->
+  <div class="absolute inset-0 -z-10">
+    <div class="absolute top-10 left-10 w-72 h-72 bg-orange-200 dark:bg-orange-900 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-xl opacity-70 dark:opacity-30 animate-blob"></div>
+    <div class="absolute top-10 right-10 w-72 h-72 bg-blue-200 dark:bg-blue-900 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-xl opacity-70 dark:opacity-30 animate-blob animation-delay-2000"></div>
+    <div class="absolute -bottom-8 left-20 w-72 h-72 bg-purple-200 dark:bg-purple-900 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-xl opacity-70 dark:opacity-30 animate-blob animation-delay-4000"></div>
+  </div>
+
+  <div class="container mx-auto max-w-6xl text-center">
+    <!-- Main heading -->
+    <h1 class="text-5xl md:text-7xl font-bold text-slate-800 dark:text-slate-100 mb-6">
+      The Easiest Way to Build
+      <span class="bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent">
+        Fast Websites
+      </span>
+    </h1>
+
+    <p class="text-xl md:text-2xl text-slate-600 dark:text-slate-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+      Astro helps you create lightning-fast websites without complicated code.
+    </p>
+
+    <!-- Feature highlights -->
+    <div class="flex flex-wrap justify-center gap-4 mb-12">
+      <span class="px-4 py-2 bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm rounded-full text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
+        ⚡ Super Fast
+      </span>
+      <span class="px-4 py-2 bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm rounded-full text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
+        🏗️ Easy to Use
+      </span>
+      <span class="px-4 py-2 bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm rounded-full text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
+        🎨 Beginner Friendly
+      </span>
+      <span class="px-4 py-2 bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm rounded-full text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
+        📱 Great for SEO
+      </span>
+    </div>
+
+    <!-- CTA Buttons -->
+    <div class="flex flex-col sm:flex-row justify-center gap-4">
+      <a 
+        href="#concepts" 
+        class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-xl font-semibold transition-all transform hover:scale-105 shadow-lg hover:shadow-xl"
+      >
+Learn the Basics
+      </a>
+      <a 
+        href="https://docs.astro.build/en/getting-started/" 
+        class="bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 px-8 py-4 rounded-xl font-semibold border-2 border-slate-200 dark:border-slate-600 hover:border-slate-300 dark:hover:border-slate-500 transition-all"
+        target="_blank"
+        rel="noopener"
+      >
+        Get Started
+      </a>
+    </div>
+
+    <!-- Performance stats -->
+    <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="text-center">
+        <div class="text-3xl font-bold text-orange-500 mb-2">90%</div>
+        <div class="text-slate-600 dark:text-slate-400">Less Code to Download</div>
+      </div>
+      <div class="text-center">
+        <div class="text-3xl font-bold text-orange-500 mb-2">2x</div>
+        <div class="text-slate-600 dark:text-slate-400">Faster Than Other Tools</div>
+      </div>
+      <div class="text-center">
+        <div class="text-3xl font-bold text-orange-500 mb-2">A+</div>
+        <div class="text-slate-600 dark:text-slate-400">Perfect SEO Scores</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes blob {
+    0% {
+      transform: translate(0px, 0px) scale(1);
+    }
+    33% {
+      transform: translate(30px, -50px) scale(1.1);
+    }
+    66% {
+      transform: translate(-20px, 20px) scale(0.9);
+    }
+    100% {
+      transform: translate(0px, 0px) scale(1);
+    }
+  }
+  .animate-blob {
+    animation: blob 7s infinite;
+  }
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+</style>

@@ -1,0 +1,215 @@
+---
+import ConceptCard from './ConceptCard.astro';
+
+const concepts = [
+  {
+    title: "Smart Loading (Islands)",
+    icon: "🏝️",
+    description: "Astro is smart about what code it sends to your visitors. It only loads interactive parts when needed, making your website much faster.",
+    benefits: [
+      "Only loads what's actually needed",
+      "Each part loads separately",
+      "Better Google search ranking",
+      "Faster for your visitors"
+    ],
+    codeExample: `<span class="text-yellow-400">---</span>
+<span class="text-blue-400">import</span> <span class="text-green-400">MyReactComponent</span> <span class="text-blue-400">from</span> <span class="text-orange-300">'./MyReactComponent.jsx'</span><span class="text-slate-300">;</span>
+<span class="text-yellow-400">---</span>
+
+<span class="text-gray-500">&lt;!-- Static by default --&gt;</span>
+<span class="text-red-400">&lt;</span><span class="text-blue-400">MyReactComponent</span> <span class="text-red-400">/&gt;</span>
+
+<span class="text-gray-500">&lt;!-- Interactive island --&gt;</span>
+<span class="text-red-400">&lt;</span><span class="text-blue-400">MyReactComponent</span> <span class="text-green-400">client:visible</span> <span class="text-red-400">/&gt;</span>`
+  },
+  {
+    title: "Fast by Default",
+    icon: "⚡",
+    description: "Your website loads super fast because Astro doesn't include unnecessary code. It's like having a race car instead of a heavy truck.",
+    benefits: [
+      "90% less code than other tools",
+      "Loads twice as fast",
+      "Works great on slow internet",
+      "Perfect for mobile phones"
+    ],
+    codeExample: `<span class="text-gray-500">&lt;!-- Renders to static HTML only --&gt;</span>
+<span class="text-red-400">&lt;</span><span class="text-blue-400">div</span><span class="text-red-400">&gt;</span>
+  <span class="text-red-400">&lt;</span><span class="text-blue-400">h1</span><span class="text-red-400">&gt;</span>Fast by Default<span class="text-red-400">&lt;/</span><span class="text-blue-400">h1</span><span class="text-red-400">&gt;</span>
+  <span class="text-red-400">&lt;</span><span class="text-blue-400">p</span><span class="text-red-400">&gt;</span>No JavaScript shipped to browser<span class="text-red-400">&lt;/</span><span class="text-blue-400">p</span><span class="text-red-400">&gt;</span>
+<span class="text-red-400">&lt;/</span><span class="text-blue-400">div</span><span class="text-red-400">&gt;</span>`
+  },
+  {
+    title: "Building Blocks (Components)",
+    icon: "🧩",
+    description: "Create website pieces that you can reuse everywhere. Like LEGO blocks, you build once and use many times to save work.",
+    benefits: [
+      "Build once, use everywhere",
+      "Easy to organize your code",
+      "Works with any other tools",
+      "Catches mistakes automatically"
+    ],
+    codeExample: `<span class="text-yellow-400">---</span>
+<span class="text-blue-400">import</span> <span class="text-green-400">Header</span> <span class="text-blue-400">from</span> <span class="text-orange-300">'./Header.astro'</span><span class="text-slate-300">;</span>
+<span class="text-blue-400">const</span> <span class="text-green-400">{ title }</span> <span class="text-red-400">=</span> <span class="text-purple-400">Astro.props</span><span class="text-slate-300">;</span>
+<span class="text-yellow-400">---</span>
+
+<span class="text-red-400">&lt;</span><span class="text-blue-400">Header</span> <span class="text-red-400">/&gt;</span>
+<span class="text-red-400">&lt;</span><span class="text-blue-400">h1</span><span class="text-red-400">&gt;</span><span class="text-yellow-400">{title}</span><span class="text-red-400">&lt;/</span><span class="text-blue-400">h1</span><span class="text-red-400">&gt;</span>
+<span class="text-red-400">&lt;</span><span class="text-blue-400">slot</span> <span class="text-red-400">/&gt;</span>`
+  },
+  {
+    title: "Built on the Server",
+    icon: "🖥️",
+    description: "Your website is built before visitors see it, making it load instantly. Like having a finished house instead of building it while someone watches.",
+    benefits: [
+      "Pages ready before visitors arrive",
+      "Can add live features when needed",
+      "Google finds your site easily",
+      "Works great anywhere you host it"
+    ],
+    codeExample: `<span class="text-yellow-400">---</span>
+<span class="text-gray-500">// Runs on server during build</span>
+<span class="text-blue-400">const</span> <span class="text-green-400">posts</span> <span class="text-red-400">=</span> <span class="text-blue-400">await</span> <span class="text-green-400">fetch</span><span class="text-slate-300">(</span><span class="text-orange-300">'api/posts'</span><span class="text-slate-300">)</span>
+  <span class="text-red-400">.</span><span class="text-green-400">then</span><span class="text-slate-300">(</span><span class="text-green-400">r</span> <span class="text-red-400">=&gt;</span> <span class="text-green-400">r.json</span><span class="text-slate-300">())</span><span class="text-slate-300">;</span>
+<span class="text-yellow-400">---</span>
+
+<span class="text-red-400">&lt;</span><span class="text-blue-400">ul</span><span class="text-red-400">&gt;</span>
+  <span class="text-yellow-400">{posts.map(post =&gt;</span>
+    <span class="text-red-400">&lt;</span><span class="text-blue-400">li</span><span class="text-red-400">&gt;</span><span class="text-yellow-400">{post.title}</span><span class="text-red-400">&lt;/</span><span class="text-blue-400">li</span><span class="text-red-400">&gt;</span>
+  <span class="text-yellow-400">)}</span>
+<span class="text-red-400">&lt;/</span><span class="text-blue-400">ul</span><span class="text-red-400">&gt;</span>`
+  },
+  {
+    title: "Mix Any Tools Together",
+    icon: "🔄",
+    description: "Use React, Vue, Svelte, or any other tools you like in the same website. It's like having a toolbox where every tool works perfectly together.",
+    benefits: [
+      "Use your favorite tools",
+      "Switch tools gradually",
+      "Everyone on your team stays happy",
+      "Reuse existing code pieces"
+    ],
+    codeExample: `<span class="text-yellow-400">---</span>
+<span class="text-blue-400">import</span> <span class="text-green-400">ReactComponent</span> <span class="text-blue-400">from</span> <span class="text-orange-300">'./React.jsx'</span><span class="text-slate-300">;</span>
+<span class="text-blue-400">import</span> <span class="text-green-400">VueComponent</span> <span class="text-blue-400">from</span> <span class="text-orange-300">'./Vue.vue'</span><span class="text-slate-300">;</span>
+<span class="text-blue-400">import</span> <span class="text-green-400">SvelteComponent</span> <span class="text-blue-400">from</span> <span class="text-orange-300">'./Svelte.svelte'</span><span class="text-slate-300">;</span>
+<span class="text-yellow-400">---</span>
+
+<span class="text-red-400">&lt;</span><span class="text-blue-400">ReactComponent</span> <span class="text-green-400">client:load</span> <span class="text-red-400">/&gt;</span>
+<span class="text-red-400">&lt;</span><span class="text-blue-400">VueComponent</span> <span class="text-green-400">client:visible</span> <span class="text-red-400">/&gt;</span>
+<span class="text-red-400">&lt;</span><span class="text-blue-400">SvelteComponent</span> <span class="text-green-400">client:idle</span> <span class="text-red-400">/&gt;</span>`
+  },
+  {
+    title: "Easy Content Management",
+    icon: "📚",
+    description: "Organize your blog posts, articles, and pages like files in folders. Astro helps you keep everything tidy and finds mistakes before they happen.",
+    benefits: [
+      "Find content easily and safely",
+      "Catches content mistakes early",
+      "Your editor understands your content",
+      "Writers love how simple it is"
+    ],
+    codeExample: `<span class="text-yellow-400">---</span>
+<span class="text-blue-400">import</span> <span class="text-slate-300">{</span> <span class="text-green-400">getCollection</span> <span class="text-slate-300">}</span> <span class="text-blue-400">from</span> <span class="text-orange-300">'astro:content'</span><span class="text-slate-300">;</span>
+
+<span class="text-blue-400">const</span> <span class="text-green-400">blogPosts</span> <span class="text-red-400">=</span> <span class="text-blue-400">await</span> <span class="text-green-400">getCollection</span><span class="text-slate-300">(</span><span class="text-orange-300">'blog'</span><span class="text-slate-300">)</span><span class="text-slate-300">;</span>
+<span class="text-yellow-400">---</span>
+
+<span class="text-yellow-400">{blogPosts.map(post =&gt;</span>
+  <span class="text-red-400">&lt;</span><span class="text-blue-400">article</span><span class="text-red-400">&gt;</span>
+    <span class="text-red-400">&lt;</span><span class="text-blue-400">h2</span><span class="text-red-400">&gt;</span><span class="text-yellow-400">{post.data.title}</span><span class="text-red-400">&lt;/</span><span class="text-blue-400">h2</span><span class="text-red-400">&gt;</span>
+  <span class="text-red-400">&lt;/</span><span class="text-blue-400">article</span><span class="text-red-400">&gt;</span>
+<span class="text-yellow-400">)}</span>`
+  },
+  {
+    title: "Automatically Super Fast",
+    icon: "🚀",
+    description: "Astro makes your website lightning fast without you doing any extra work. It automatically optimizes images, shrinks code, and loads only what's needed.",
+    benefits: [
+      "Splits big files into smaller pieces",
+      "Makes images load faster",
+      "Removes unnecessary code",
+      "Gets perfect speed test scores"
+    ],
+    codeExample: `<span class="text-yellow-400">---</span>
+<span class="text-blue-400">import</span> <span class="text-slate-300">{</span> <span class="text-green-400">Image</span> <span class="text-slate-300">}</span> <span class="text-blue-400">from</span> <span class="text-orange-300">'astro:assets'</span><span class="text-slate-300">;</span>
+<span class="text-blue-400">import</span> <span class="text-green-400">heroImage</span> <span class="text-blue-400">from</span> <span class="text-orange-300">'../assets/hero.jpg'</span><span class="text-slate-300">;</span>
+<span class="text-yellow-400">---</span>
+
+<span class="text-gray-500">&lt;!-- Auto-optimized image --&gt;</span>
+<span class="text-red-400">&lt;</span><span class="text-blue-400">Image</span> 
+  <span class="text-green-400">src</span><span class="text-red-400">={heroImage}</span> 
+  <span class="text-green-400">alt</span><span class="text-red-400">="Hero"</span>
+  <span class="text-green-400">width</span><span class="text-red-400">={800}</span>
+  <span class="text-green-400">height</span><span class="text-red-400">={400}</span>
+<span class="text-red-400">/&gt;</span>`
+  },
+  {
+    title: "Instant Updates While You Code",
+    icon: "⚙️",
+    description: "See your changes instantly in the browser as you type. No waiting, no refreshing - just smooth, fast development that keeps you in the flow.",
+    benefits: [
+      "See changes immediately",
+      "Starts up in seconds",
+      "Creates optimized final websites",
+      "Lots of helpful add-ons available"
+    ],
+    codeExample: `<span class="text-gray-500">// astro.config.mjs</span>
+<span class="text-blue-400">import</span> <span class="text-slate-300">{</span> <span class="text-green-400">defineConfig</span> <span class="text-slate-300">}</span> <span class="text-blue-400">from</span> <span class="text-orange-300">'astro/config'</span><span class="text-slate-300">;</span>
+<span class="text-blue-400">import</span> <span class="text-green-400">react</span> <span class="text-blue-400">from</span> <span class="text-orange-300">'@astrojs/react'</span><span class="text-slate-300">;</span>
+<span class="text-blue-400">import</span> <span class="text-green-400">tailwind</span> <span class="text-blue-400">from</span> <span class="text-orange-300">'@astrojs/tailwind'</span><span class="text-slate-300">;</span>
+
+<span class="text-blue-400">export default</span> <span class="text-green-400">defineConfig</span><span class="text-slate-300">({</span>
+  <span class="text-green-400">integrations</span><span class="text-red-400">:</span> <span class="text-slate-300">[</span><span class="text-green-400">react</span><span class="text-slate-300">(),</span> <span class="text-green-400">tailwind</span><span class="text-slate-300">()]</span>
+<span class="text-slate-300">})</span><span class="text-slate-300">;</span>`
+  },
+  {
+    title: "Host Anywhere You Want",
+    icon: "☁️",
+    description: "Put your website anywhere - free hosting services, big cloud companies, or your own server. Astro works everywhere so you're never locked in.",
+    benefits: [
+      "Works on free hosting",
+      "Can add server features if needed",
+      "Many hosting options to choose from",
+      "Fast loading worldwide"
+    ],
+    codeExample: `<span class="text-gray-500">// Deploy static site</span>
+<span class="text-green-400">npm run build</span>
+
+<span class="text-gray-500">// Or enable SSR</span>
+<span class="text-blue-400">import</span> <span class="text-green-400">vercel</span> <span class="text-blue-400">from</span> <span class="text-orange-300">'@astrojs/vercel/serverless'</span><span class="text-slate-300">;</span>
+
+<span class="text-blue-400">export default</span> <span class="text-green-400">defineConfig</span><span class="text-slate-300">({</span>
+  <span class="text-green-400">output</span><span class="text-red-400">:</span> <span class="text-orange-300">'server'</span><span class="text-slate-300">,</span>
+  <span class="text-green-400">adapter</span><span class="text-red-400">:</span> <span class="text-green-400">vercel</span><span class="text-slate-300">()</span>
+<span class="text-slate-300">})</span><span class="text-slate-300">;</span>`
+  }
+];
+---
+
+<section id="concepts" class="py-20 px-6 bg-slate-50/50 dark:bg-slate-800/50">
+  <div class="container mx-auto max-w-7xl">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-slate-800 dark:text-slate-100 mb-6">
+        Learn How Astro Works
+      </h2>
+      <p class="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
+        Discover the simple ideas that make Astro perfect for building fast websites.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {concepts.map((concept, index) => (
+        <div class={`animate-fadeInUp stagger-${index + 1}`}>
+          <ConceptCard
+            title={concept.title}
+            icon={concept.icon}
+            description={concept.description}
+            benefits={concept.benefits}
+            codeExample={concept.codeExample}
+          />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
